@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./certs/conf:/etc/letsencrypt
+      - ./certs/www:/var/www/certbot
+    ports:
+      - 80:80
+      - 443:443
